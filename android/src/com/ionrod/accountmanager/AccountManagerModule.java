@@ -15,6 +15,8 @@ import org.appcelerator.titanium.TiApplication;
 import org.appcelerator.kroll.common.Log;
 import org.appcelerator.kroll.common.TiConfig;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 
 @Kroll.module(name="AccountManager", id="com.ionrod.accountmanager")
 public class AccountManagerModule extends KrollModule
@@ -35,30 +37,23 @@ public class AccountManagerModule extends KrollModule
 	@Kroll.onAppCreate
 	public static void onAppCreate(TiApplication app)
 	{
-		Log.d(LCAT, "inside onAppCreate");
+		
 		// put module init code that needs to run when the application is created
 	}
 
 	// Methods
 	@Kroll.method
-	public String example()
+	public String getUserEmail()
 	{
-		Log.d(LCAT, "example called");
-		return "hello world";
-	}
-
-	// Properties
-	@Kroll.getProperty
-	public String getExampleProp()
-	{
-		Log.d(LCAT, "get example property");
-		return "hello world";
-	}
-
-
-	@Kroll.setProperty
-	public void setExampleProp(String value) {
-		Log.d(LCAT, "set example property: " + value);
+		try {
+			Account[] accounts = AccountManager.get(TiApplication.getInstance()).getAccounts();
+			for (Account account : accounts) {
+		        return account.name;
+			}
+		} catch(Exception e) {
+			return "";
+		}
+		return "";
 	}
 
 }
