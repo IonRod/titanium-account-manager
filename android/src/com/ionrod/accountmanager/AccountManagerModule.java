@@ -46,7 +46,7 @@ public class AccountManagerModule extends KrollModule
 	public String getUserEmail()
 	{
 		try {
-			Account[] accounts = AccountManager.get(TiApplication.getInstance()).getAccounts();
+			Account[] accounts = AccountManager.get(TiApplication.getInstance()).getAccountsByType("com.google"); 
 			for (Account account : accounts) {
 		        return account.name;
 			}
