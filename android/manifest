@@ -1,0 +1,17 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+description: account-manager
+author: Your Name
+license: Specify your license
+copyright: Copyright (c) 2015 by Your Company
+
+# these should not be edited
+name: account-manager
+moduleid: com.ionrod.accountmanager
+guid: 089030dc-f844-4126-a925-75ecba632789
+platform: android
+minsdk: 3.4.1.GA
